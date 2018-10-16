@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <OnyxCamera/OnyxConfigurationBuilder.h>
+#import <OnyxCamera/Onyx.h>
 
 @interface ViewController : UIViewController
 
+@property OnyxResult* onyxResult;
+
+-(void(^)(OnyxResult* onyxResult))onyxSuccessCallback;
+
+-(void(^)(OnyxError* onyxError)) onyxErrorCallback;
+
+-(void(^)(Onyx* configuredOnyx))onyxCallback;
 
 @end
 
