@@ -18,9 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //        NSString* rawImageEncodedBytes = [_onyxResult.rawImageUri substringFromIndex:[IMAGE_URI_PREFIX length]];
-    //        NSData* rawImageData = [[NSData alloc] initWithBase64EncodedString:rawImageEncodedBytes options:NSDataBase64DecodingIgnoreUnknownCharacters];
-    //        UIImage* rawImage = [UIImage imageWithData:rawImageData];
     
     _rawImage.image = [_onyxResult getRawFingerprintImage]; // _onyxResult.rawFingerprintImage;
     _processedImage.image = [_onyxResult getProcessedFingerprintImage]; // _onyxResult.processedFingerprintImage;
@@ -42,6 +39,7 @@
         resultText = [resultText stringByAppendingString:[NSString stringWithFormat:@"\nlivenessConfidence: %f", livenessConfidence]];
     }
     _detailTextView.text = resultText;
+    
 }
 
 - (IBAction)save:(id)sender {

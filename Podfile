@@ -6,5 +6,5 @@ target 'cocoapod-example' do
   # use_frameworks!
 
   # Pods for cocoapod-example
-    pod 'OnyxCamera', '~> 5.0.1'
+    pod 'OnyxCamera', '~> 5.3.0'
 end

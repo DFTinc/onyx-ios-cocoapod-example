@@ -47,31 +47,35 @@
             //Your code goes in here
             NSLog(@"Main Thread");
             //            [self stopSpinnner];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ONYX Error"
+                                                            message:[NSString stringWithFormat:@"ErrorCode: %d, ErrorMessage:%@, Error:%@", onyxError.error, onyxError.errorMessage, onyxError.exception]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ONYX Error"
-                                                        message:[NSString stringWithFormat:@"ErrorCode: %d, ErrorMessage:%@, Error:%@", onyxError.error, onyxError.errorMessage, onyxError.exception]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
     };
 }
 
 - (IBAction)capture:(UIButton *)sender {
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"your-onyx-license-key-goes-here")
+    .setLicenseKey(@"your-onyx-license-key")
     .setReturnRawImage(true)
-    .setReturnGrayRawImage(true)
     .setReturnProcessedImage(true)
-    .setReturnBlackWhiteProcessedImage(true)
     .setReturnEnhancedImage(true)
+    .setReturnWSQ(true)
+    .setImageRotation(90)
+    .setReturnFingerprintTemplate(true)
+    .setShowLoadingSpinner(true)
+    .setReturnBlackWhiteProcessedImage(true)
     .setSuccessCallback([self onyxSuccessCallback])
     .setErrorCallback([self onyxErrorCallback])
     .setOnyxCallback([self onyxCallback]);
     
     [onyxConfigBuilder buildOnyxConfiguration];
 }
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToOnyxResult"]) {

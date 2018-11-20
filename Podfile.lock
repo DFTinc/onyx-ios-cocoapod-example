@@ -1,15 +1,15 @@
 PODS:
-  - OnyxCamera (5.0.1):
+  - OnyxCamera (5.3.0):
     - OpenCV (~> 3.4)
   - OpenCV (3.4.2)
 
 DEPENDENCIES:
-  - OnyxCamera (~> 5.0.1)
+  - OnyxCamera (~> 5.3.0)
 
 SPEC CHECKSUMS:
-  OnyxCamera: ae6efca90d504e074e1490c432d29acef7b8f96f
+  OnyxCamera: 1438c8498457cecae518c8f82f2e2282434e6d80
   OpenCV: 452909747854c92e0f59670961ed5131f5286cb5
 
-PODFILE CHECKSUM: 7d27e00367b7695965b64affa595a1e4c16f4959
+PODFILE CHECKSUM: a4ca262b5ab76eb84d06f4cb7e5aaa71918fc8b9
 
 COCOAPODS: 1.4.0
