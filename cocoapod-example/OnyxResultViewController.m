@@ -34,7 +34,7 @@
     float focusMeasure = [[_onyxResult getMetrics] getDistanceToCenter]; //_onyxResult.captureMetrics.distanceToCenter;
     float livenessConfidence = [[_onyxResult getMetrics] getLivenessConfidence]; // _onyxResult.captureMetrics.livenessConfidence;
     
-    NSString *resultText = [NSString stringWithFormat:@"returnFingerprintTemplate: %s\nreturnWSQ: %s\nreturnGrayRawWSQ: %s\nnfiqScore: %d\nmplScore: %f\nfocusQuality: %f\nfocusMesaure: %f", [_onyxResult getFingerprintTemplate] ? "true":"false", [_onyxResult getWsqData] ? "true":"false", [_onyxResult getGrayRawWsqData] ? "true":"false",nfiqScore, mlpScore, focusQuality, focusMeasure];
+    NSString *resultText = [NSString stringWithFormat:@"returnFingerprintTemplate: %s\nreturnISOFingerprintTemplate: %s\nreturnWSQ: %s\nreturnGrayRawWSQ: %s\nnfiqScore: %d\nmplScore: %f\nfocusQuality: %f\nfocusMesaure: %f", [_onyxResult getFingerprintTemplate] ? "true":"false", [_onyxResult getISOFingerprintTemplate] ? "true":"false", [_onyxResult getWsqData] ? "true":"false", [_onyxResult getGrayRawWsqData] ? "true":"false",nfiqScore, mlpScore, focusQuality, focusMeasure];
     if (livenessConfidence != -1) {
         resultText = [resultText stringByAppendingString:[NSString stringWithFormat:@"\nlivenessConfidence: %f", livenessConfidence]];
     }

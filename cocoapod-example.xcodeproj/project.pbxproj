@@ -114,8 +114,6 @@
 				2DF8D3B1217528FE003F56E0 /* Sources */,
 				2DF8D3B2217528FE003F56E0 /* Frameworks */,
 				2DF8D3B3217528FE003F56E0 /* Resources */,
-				04EF5EA02A9C004D495077FE /* [CP] Embed Pods Frameworks */,
-				814C81E060704BE2F0B2A33A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,39 +171,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		04EF5EA02A9C004D495077FE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		814C81E060704BE2F0B2A33A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/OnyxCamera/OnyxCamera.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/OnyxCamera.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AE520A0ED8634508325E760B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

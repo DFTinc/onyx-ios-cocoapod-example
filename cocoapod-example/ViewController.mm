@@ -60,13 +60,15 @@
 - (IBAction)capture:(UIButton *)sender {
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"your-onyx-license-key")
+    .setLicenseKey(@"2443-5548-7554-5-2")
+    .setUseManualCapture(true)
     .setReturnRawImage(true)
     .setReturnProcessedImage(true)
     .setReturnEnhancedImage(true)
     .setReturnWSQ(true)
     .setImageRotation(90)
     .setReturnFingerprintTemplate(true)
+    .setReturnISOFingerprintTemplate(true)
     .setShowLoadingSpinner(true)
     .setReturnBlackWhiteProcessedImage(true)
     .setSuccessCallback([self onyxSuccessCallback])
