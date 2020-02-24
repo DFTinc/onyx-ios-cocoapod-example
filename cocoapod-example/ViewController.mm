@@ -23,7 +23,10 @@
 -(void(^)(Onyx* configuredOnyx))onyxCallback {
     return ^(Onyx* configuredOnyx) {
         NSLog(@"Onyx Callback");
-        [configuredOnyx capture:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [configuredOnyx capture:self];
+        });
+
     };
 }
 
@@ -31,21 +34,17 @@
     return ^(OnyxResult* onyxResult) {
         NSLog(@"Onyx Success Callback");
         self->_onyxResult = onyxResult;
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-            //Your code goes in here
-            NSLog(@"Main Thread");
+        dispatch_async(dispatch_get_main_queue(), ^{
             // Uncomment this later when ready to handle OnyxResult
             [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResult];
-        }];
+        });
     };
 }
 
 -(void(^)(OnyxError* onyxError)) onyxErrorCallback {
     return ^(OnyxError* onyxError) {
         NSLog(@"Onyx Error Callback");
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-            //Your code goes in here
-            NSLog(@"Main Thread");
+        dispatch_async(dispatch_get_main_queue(), ^{
             //            [self stopSpinnner];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ONYX Error"
                                                             message:[NSString stringWithFormat:@"ErrorCode: %d, ErrorMessage:%@, Error:%@", onyxError.error, onyxError.errorMessage, onyxError.exception]
@@ -53,7 +52,8 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
             [alert show];
-        }];
+        });
+            
     };
 }
 
