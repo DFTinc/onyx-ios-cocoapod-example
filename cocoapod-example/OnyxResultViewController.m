@@ -18,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    OnyxResult* _onyxResult = _onyxResults[0];
+    NSLog(@"onyxResults %lu", (unsigned long) [_onyxResults count]);
     _rawImage.image = [_onyxResult getRawFingerprintImage]; // _onyxResult.rawFingerprintImage;
     _processedImage.image = [_onyxResult getProcessedFingerprintImage]; // _onyxResult.processedFingerprintImage;
     _enhancedImage.image = [_onyxResult getEnhancedFingerprintImage]; // _onyxResult.enhancedFingerprintImage;
@@ -43,12 +44,13 @@
 }
 
 - (IBAction)save:(id)sender {
+    for (OnyxResult* _onyxResult in _onyxResults) {
     UIImageWriteToSavedPhotosAlbum([_onyxResult getRawFingerprintImage], nil, nil, nil);
     UIImageWriteToSavedPhotosAlbum([_onyxResult getGrayRawFingerprintImage], nil, nil, nil);
     UIImageWriteToSavedPhotosAlbum([_onyxResult getProcessedFingerprintImage], nil, nil, nil);
     UIImageWriteToSavedPhotosAlbum([_onyxResult getEnhancedFingerprintImage], nil, nil, nil);
     UIImageWriteToSavedPhotosAlbum([_onyxResult getBlackWhiteProcessedFingerprintImage], nil, nil, nil);
-    
+    }
     NSString *docsDir;
     NSArray *dirPaths;
     

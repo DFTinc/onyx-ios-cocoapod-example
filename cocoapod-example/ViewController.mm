@@ -30,13 +30,13 @@
     };
 }
 
--(void(^)(OnyxResult* onyxResult))onyxSuccessCallback {
-    return ^(OnyxResult* onyxResult) {
+-(void(^)(NSMutableArray* onyxResults))onyxSuccessCallback {
+    return ^(NSMutableArray* onyxResults) {
         NSLog(@"Onyx Success Callback");
-        self->_onyxResult = onyxResult;
+        self->_onyxResults = onyxResults;
         dispatch_async(dispatch_get_main_queue(), ^{
             // Uncomment this later when ready to handle OnyxResult
-            [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResult];
+            [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResults];
         });
     };
 }
@@ -60,8 +60,8 @@
 - (IBAction)capture:(UIButton *)sender {
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"2443-5548-7554-5-2")
-    .setUseManualCapture(true)
+    .setLicenseKey(@"5844-3213-7705-1-2")
+    .setUseManualCapture(false)
     .setReturnRawImage(true)
     .setReturnProcessedImage(true)
     .setReturnEnhancedImage(true)
@@ -82,7 +82,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToOnyxResult"]) {
         OnyxResultViewController* orvc = segue.destinationViewController;
-        orvc.onyxResult = sender;
+        orvc.onyxResults = sender;
     }
 }
 
