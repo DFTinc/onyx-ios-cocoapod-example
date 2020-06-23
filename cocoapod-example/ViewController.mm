@@ -60,7 +60,7 @@
 - (IBAction)capture:(UIButton *)sender {
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"5844-3213-7705-1-2")
+    .setLicenseKey(@"your-license-key-here")
     .setUseManualCapture(false)
     .setReturnRawImage(true)
     .setReturnProcessedImage(true)
