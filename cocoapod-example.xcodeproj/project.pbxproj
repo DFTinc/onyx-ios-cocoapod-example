@@ -3,19 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2DF8D3BA217528FE003F56E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3B9217528FE003F56E0 /* AppDelegate.m */; };
 		2DF8D3BD217528FE003F56E0 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3BC217528FE003F56E0 /* ViewController.mm */; };
-		2DF8D3C0217528FE003F56E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3BE217528FE003F56E0 /* Main.storyboard */; };
 		2DF8D3C221752900003F56E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3C121752900003F56E0 /* Assets.xcassets */; };
 		2DF8D3C521752900003F56E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3C321752900003F56E0 /* LaunchScreen.storyboard */; };
 		2DF8D3C821752900003F56E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3C721752900003F56E0 /* main.m */; };
 		2DF8D3CF21752959003F56E0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3CE21752958003F56E0 /* Podfile */; };
 		2DF8D3DF217579C3003F56E0 /* OnyxResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */; };
 		84C0434C560AAC6EABBE9AFE /* libPods-cocoapod-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2637B179F039DFF0A3986610 /* libPods-cocoapod-example.a */; };
+		CC7278892541F2FB002B4D27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC7278882541F2FB002B4D27 /* Main.storyboard */; };
+		CCDF6C20254207FB0074C14D /* logo-dft-horizontal.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDF6C1F254207FA0074C14D /* logo-dft-horizontal.png */; };
+		CCDF6C232542082D0074C14D /* logo-dft-horizontal-black.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDF6C222542082D0074C14D /* logo-dft-horizontal-black.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,6 @@
 		2DF8D3B9217528FE003F56E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2DF8D3BB217528FE003F56E0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2DF8D3BC217528FE003F56E0 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		2DF8D3BF217528FE003F56E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DF8D3C121752900003F56E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DF8D3C421752900003F56E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DF8D3C621752900003F56E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +36,9 @@
 		2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnyxResultViewController.m; sourceTree = "<group>"; };
 		A7A276ACA3234E76D7D3A48C /* Pods-cocoapod-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoapod-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example.debug.xcconfig"; sourceTree = "<group>"; };
 		AA47445740D5569DA4D935C5 /* Pods-cocoapod-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoapod-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example.release.xcconfig"; sourceTree = "<group>"; };
+		CC7278882541F2FB002B4D27 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CCDF6C1F254207FA0074C14D /* logo-dft-horizontal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-dft-horizontal.png"; sourceTree = "<group>"; };
+		CCDF6C222542082D0074C14D /* logo-dft-horizontal-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-dft-horizontal-black.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +79,15 @@
 				2DF8D3B9217528FE003F56E0 /* AppDelegate.m */,
 				2DF8D3BB217528FE003F56E0 /* ViewController.h */,
 				2DF8D3BC217528FE003F56E0 /* ViewController.mm */,
-				2DF8D3BE217528FE003F56E0 /* Main.storyboard */,
-				2DF8D3C121752900003F56E0 /* Assets.xcassets */,
 				2DF8D3C321752900003F56E0 /* LaunchScreen.storyboard */,
+				CC7278882541F2FB002B4D27 /* Main.storyboard */,
+				2DF8D3C121752900003F56E0 /* Assets.xcassets */,
 				2DF8D3C621752900003F56E0 /* Info.plist */,
 				2DF8D3C721752900003F56E0 /* main.m */,
 				2DF8D3DD21757983003F56E0 /* OnyxResultViewController.h */,
 				2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */,
+				CCDF6C1F254207FA0074C14D /* logo-dft-horizontal.png */,
+				CCDF6C222542082D0074C14D /* logo-dft-horizontal-black.png */,
 			);
 			path = "cocoapod-example";
 			sourceTree = "<group>";
@@ -131,7 +137,7 @@
 		2DF8D3AD217528FE003F56E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1210;
 				ORGANIZATIONNAME = "Diamond Fortress Technologies, Inc.";
 				TargetAttributes = {
 					2DF8D3B4217528FE003F56E0 = {
@@ -163,9 +169,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF8D3C521752900003F56E0 /* LaunchScreen.storyboard in Resources */,
+				CCDF6C20254207FB0074C14D /* logo-dft-horizontal.png in Resources */,
+				CC7278892541F2FB002B4D27 /* Main.storyboard in Resources */,
+				CCDF6C232542082D0074C14D /* logo-dft-horizontal-black.png in Resources */,
 				2DF8D3C221752900003F56E0 /* Assets.xcassets in Resources */,
 				2DF8D3CF21752959003F56E0 /* Podfile in Resources */,
-				2DF8D3C0217528FE003F56E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,14 +232,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2DF8D3BE217528FE003F56E0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2DF8D3BF217528FE003F56E0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2DF8D3C321752900003F56E0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -269,6 +269,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -328,6 +329,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

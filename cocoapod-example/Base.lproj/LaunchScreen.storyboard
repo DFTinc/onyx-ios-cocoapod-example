@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,10 +13,31 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-dft-horizontal-black.png" translatesAutoresizingMaskIntoConstraints="NO" id="mqX-Dl-rvq" userLabel="DFT Logo">
+                                <rect key="frame" x="87" y="201" width="240" height="128"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onyx_4f_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="c2z-JY-fxv">
+                                <rect key="frame" x="87" y="363" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="c2z-JY-fxv" secondAttribute="height" multiplier="15:8" id="O4F-ek-UcX"/>
+                                    <constraint firstAttribute="height" constant="128" id="TSW-1I-0s4"/>
+                                    <constraint firstAttribute="width" constant="240" id="feY-OY-Plq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c2z-JY-fxv" secondAttribute="bottom" constant="371" id="1XG-2G-r8X"/>
+                            <constraint firstItem="mqX-Dl-rvq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="157" id="3RK-qc-lr1"/>
+                            <constraint firstItem="c2z-JY-fxv" firstAttribute="trailing" secondItem="mqX-Dl-rvq" secondAttribute="trailing" id="KPd-Tn-KXt"/>
+                            <constraint firstItem="c2z-JY-fxv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hPW-pR-MVQ"/>
+                            <constraint firstItem="c2z-JY-fxv" firstAttribute="leading" secondItem="mqX-Dl-rvq" secondAttribute="leading" id="uk5-gy-Nnd"/>
+                            <constraint firstItem="c2z-JY-fxv" firstAttribute="top" secondItem="mqX-Dl-rvq" secondAttribute="bottom" constant="34" id="zg9-fr-T5q"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +45,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-dft-horizontal-black.png" width="771" height="344"/>
+        <image name="onyx_4f_logo.png" width="80" height="64"/>
+    </resources>
 </document>

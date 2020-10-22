@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "OnyxResultViewController.h"
+#import <OnyxCamera/OnyxMatch.h>
 
 @interface OnyxResultViewController ()
 
@@ -27,7 +28,7 @@
     _blackWhiteImage.image = [_onyxResult getBlackWhiteProcessedFingerprintImage]; // _onyxResult.blackWhiteFingerprintImage;
     
     _WSQData = [_onyxResult getWsqData]; // _onyxResult.wsqData;
-    _rawGrayWSQData = [_onyxResult getGrayRawWsqData]; // _onyxResult.grayRawWsqData;
+    _rawGrayWSQData = [_onyxResult getGrayRawWsqData]; // _onyxResult.rawGrayWsqData;
     
     int nfiqScore = [[[_onyxResult getMetrics] getNfiqMetrics] getNfiqScore]; //_onyxResult.captureMetrics.nfiqMetrics.nfiqScore;
     float mlpScore = [[[_onyxResult getMetrics] getNfiqMetrics] getMlpScore]; //_onyxResult.captureMetrics.nfiqMetrics.mlpScore;
@@ -41,6 +42,10 @@
     }
     _detailTextView.text = resultText;
     
+    if (nil != _onyxResult.fingerprintTemplate && nil != _onyxResult.processedFingerprintImage) {
+        double matchScore = [OnyxMatch pyramidMatch:[_onyxResult getFingerprintTemplate] withImage:[_onyxResult getProcessedFingerprintImage] scales:[NSArray arrayWithObjects:@"0.6", @"0.8", @"1.0", @"1.2", @"1.4",nil]];
+        NSLog(@"Match score: %f", matchScore);
+    }
 }
 
 - (IBAction)save:(id)sender {
@@ -63,3 +68,4 @@
 }
 
 @end
+
