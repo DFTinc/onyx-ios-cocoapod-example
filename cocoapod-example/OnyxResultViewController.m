@@ -21,22 +21,22 @@
     [super viewDidLoad];
     OnyxResult* _onyxResult = _onyxResults[0];
     NSLog(@"onyxResults %lu", (unsigned long) [_onyxResults count]);
-    _rawImage.image = [_onyxResult getRawFingerprintImage]; // _onyxResult.rawFingerprintImage;
-    _processedImage.image = [_onyxResult getProcessedFingerprintImage]; // _onyxResult.processedFingerprintImage;
-    _enhancedImage.image = [_onyxResult getEnhancedFingerprintImage]; // _onyxResult.enhancedFingerprintImage;
-    _grayRawImage.image = [_onyxResult getGrayRawFingerprintImage]; // _onyxResult.grayRawFingerprintImage;
-    _blackWhiteImage.image = [_onyxResult getBlackWhiteProcessedFingerprintImage]; // _onyxResult.blackWhiteFingerprintImage;
+    _rawImage1.image = [_onyxResult getRawFingerprintImage]; // _onyxResult.rawFingerprintImage;
+    _processedImage1.image = [_onyxResult getProcessedFingerprintImage]; // _onyxResult.processedFingerprintImage;
+    _enhancedImage1.image = [_onyxResult getEnhancedFingerprintImage]; // _onyxResult.enhancedFingerprintImage;
+    _grayRawImage1.image = [_onyxResult getGrayRawFingerprintImage]; // _onyxResult.grayRawFingerprintImage;
+    _blackWhiteImage1.image = [_onyxResult getBlackWhiteProcessedFingerprintImage]; // _onyxResult.blackWhiteFingerprintImage;
     
-    _WSQData = [_onyxResult getWsqData]; // _onyxResult.wsqData;
-    _rawGrayWSQData = [_onyxResult getGrayRawWsqData]; // _onyxResult.rawGrayWsqData;
+    _WSQData1 = [_onyxResult getWsqData]; // _onyxResult.wsqData;
+    _rawGrayWSQData1 = [_onyxResult getGrayRawWsqData]; // _onyxResult.rawGrayWsqData;
     
     int nfiqScore = [[[_onyxResult getMetrics] getNfiqMetrics] getNfiqScore]; //_onyxResult.captureMetrics.nfiqMetrics.nfiqScore;
     float mlpScore = [[[_onyxResult getMetrics] getNfiqMetrics] getMlpScore]; //_onyxResult.captureMetrics.nfiqMetrics.mlpScore;
     float focusQuality = [[_onyxResult getMetrics] getFocusQuality]; //_onyxResult.captureMetrics.focusQuality;
     float focusMeasure = [[_onyxResult getMetrics] getDistanceToCenter]; //_onyxResult.captureMetrics.distanceToCenter;
     float livenessConfidence = [[_onyxResult getMetrics] getLivenessConfidence]; // _onyxResult.captureMetrics.livenessConfidence;
-    
-    NSString *resultText = [NSString stringWithFormat:@"returnFingerprintTemplate: %s\nreturnISOFingerprintTemplate: %s\nreturnWSQ: %s\nreturnGrayRawWSQ: %s\nnfiqScore: %d\nmplScore: %f\nfocusQuality: %f\nfocusMesaure: %f", [_onyxResult getFingerprintTemplate] ? "true":"false", [_onyxResult getISOFingerprintTemplate] ? "true":"false", [_onyxResult getWsqData] ? "true":"false", [_onyxResult getGrayRawWsqData] ? "true":"false",nfiqScore, mlpScore, focusQuality, focusMeasure];
+    _side = [[_onyxResult getMetrics] side];
+    NSString *resultText = [NSString stringWithFormat:@"returnFingerprintTemplate: %s\nreturnISOFingerprintTemplate: %s\nreturnWSQ: %s\nreturnGrayRawWSQ: %s\nnfiqScore: %d\nmplScore: %f\nfocusQuality: %f\nfocusMesaure: %f\nhandSide: %@", [_onyxResult getFingerprintTemplate] ? "true":"false", [_onyxResult getISOFingerprintTemplate] ? "true":"false", [_onyxResult getWsqData] ? "true":"false", [_onyxResult getGrayRawWsqData] ? "true":"false",nfiqScore, mlpScore, focusQuality, focusMeasure, _side];
     if (livenessConfidence != -1) {
         resultText = [resultText stringByAppendingString:[NSString stringWithFormat:@"\nlivenessConfidence: %f", livenessConfidence]];
     }
@@ -62,9 +62,9 @@
     dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"rawGrayWSQ.wsq"]];
-    [_rawGrayWSQData writeToFile:databasePath atomically:YES];
+    [_rawGrayWSQData1 writeToFile:databasePath atomically:YES];
     NSString *moreDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"WSQ.wsq"]];
-    [_WSQData writeToFile:moreDatabasePath atomically:YES];
+    [_WSQData1 writeToFile:moreDatabasePath atomically:YES];
 }
 
 @end
