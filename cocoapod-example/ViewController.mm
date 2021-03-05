@@ -7,7 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "OnyxResultViewController.h"
+#import "OnyxCamera/ProcessedFingerprint.h"
+#import "OnyxCamera/OnyxResult.h"
+#import <malloc/malloc.h>
 
 @interface ViewController ()
 
@@ -20,57 +22,67 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 -(void(^)(Onyx* configuredOnyx))onyxCallback {
     return ^(Onyx* configuredOnyx) {
         NSLog(@"Onyx Callback");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [configuredOnyx capture:self];
-        });
-
+        [configuredOnyx capture:self];
     };
 }
 
--(void(^)(NSMutableArray* onyxResults))onyxSuccessCallback {
-    return ^(NSMutableArray* onyxResults) {
+-(void(^)(OnyxResult* onyxResult))onyxSuccessCallback {
+    return ^(OnyxResult* onyxResult) {
         NSLog(@"Onyx Success Callback");
-        self->_onyxResults = onyxResults;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Uncomment this later when ready to handle OnyxResult
-            [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResults];
-        });
+        self->_onyxResult = onyxResult;
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            //Your code goes in here
+            NSLog(@"Main Thread");
+            [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResult];
+        }];
     };
 }
 
 -(void(^)(OnyxError* onyxError)) onyxErrorCallback {
     return ^(OnyxError* onyxError) {
         NSLog(@"Onyx Error Callback");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //            [self stopSpinnner];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ONYX Error"
-                                                            message:[NSString stringWithFormat:@"ErrorCode: %d, ErrorMessage:%@, Error:%@", onyxError.error, onyxError.errorMessage, onyxError.exception]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        });
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            //Your code goes in here
+            NSLog(@"Main Thread");
+//            [self stopSpinnner];
             
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"ONYX Error"
+                                         message:[NSString stringWithFormat:@"ErrorCode: %d\nMessage:%@\nError:%@",
+                                                  onyxError.error,
+                                                  onyxError.errorMessage,
+                                                  onyxError.exception]
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* okBtn = [UIAlertAction
+                                        actionWithTitle:@"OK"
+                                        style:UIAlertActionStyleCancel
+                                        handler:nil];
+            
+            [alert addAction:okBtn];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }];
     };
 }
 
-- (IBAction)capture:(UIButton *)sender {
+- (IBAction)capture:(id)sender {
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"your-license-key-here")
-    .setUseManualCapture(false)
-    .setReturnRawImage(true)
-    .setReturnProcessedImage(true)
-    .setReturnEnhancedImage(true)
-    .setReturnWSQ(true)
-    .setImageRotation(90)
-    .setReturnFingerprintTemplate(true)
-    .setReturnISOFingerprintTemplate(true)
+    .setLicenseKey(@"3969-9138-6246-1-2")
     .setShowLoadingSpinner(true)
-    .setReturnBlackWhiteProcessedImage(true)
+    .setUseManualCapture(false)
+    .setReturnRawImage(false)
+    .setReturnProcessedImage(true)
+    .setReturnEnhancedImage(false)
+    .setReturnWSQ(false)
     .setSuccessCallback([self onyxSuccessCallback])
     .setErrorCallback([self onyxErrorCallback])
     .setOnyxCallback([self onyxCallback]);
@@ -82,7 +94,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToOnyxResult"]) {
         OnyxResultViewController* orvc = segue.destinationViewController;
-        orvc.onyxResults = sender;
+        orvc.onyxResult = sender;
     }
 }
 

@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <OnyxCamera/OnyxConfigurationBuilder.h>
 #import <OnyxCamera/Onyx.h>
+#import "OnyxResultViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    UIView* spinnerView;
+    UIActivityIndicatorView* activityIndicatorView;
+}
 
-@property NSMutableArray* onyxResults;
+@property OnyxResult* onyxResult;
 
--(void(^)(NSMutableArray* onyxResults))onyxSuccessCallback;
+-(void(^)(OnyxResult* onyxResult))onyxSuccessCallback;
 
 -(void(^)(OnyxError* onyxError)) onyxErrorCallback;
 
