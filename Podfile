@@ -6,5 +6,5 @@ target 'cocoapod-example' do
   # use_frameworks!
 
   # Pods for cocoapod-example
-    pod 'OnyxCamera', :path => '~/altXcodeProjects/onyx-camera-cocoapod'
+    pod 'OnyxCamera', :git => 'https://github.com/DFTinc/onyx-camera-cocoapod', :branch => '6.12.1_dev'
 end

@@ -15,47 +15,13 @@
 		2DF8D3C821752900003F56E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3C721752900003F56E0 /* main.m */; };
 		2DF8D3CF21752959003F56E0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3CE21752958003F56E0 /* Podfile */; };
 		2DF8D3DF217579C3003F56E0 /* OnyxResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */; };
-		CCB659C725F155A10091A00B /* onyx-core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659AC25F1525C0091A00B /* onyx-core.framework */; };
-		CCB659C825F155A10091A00B /* onyx-core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659AC25F1525C0091A00B /* onyx-core.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CCB659CE25F163AF0091A00B /* libPods-cocoapod-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2637B179F039DFF0A3986610 /* libPods-cocoapod-example.a */; };
-		CCB65B3B25F2D39B0091A00B /* OnyxCamera.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = CCB65B3A25F2D39B0091A00B /* OnyxCamera.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CCB65B3D25F2D3D30091A00B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB65A9C25F19D8E0091A00B /* opencv2.framework */; };
-		CCB65B3E25F2D3D30091A00B /* opencv2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCB65A9C25F19D8E0091A00B /* opencv2.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CCB65B3F25F2D3EE0091A00B /* TensorFlowLiteC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659BA25F1535F0091A00B /* TensorFlowLiteC.framework */; };
-		CCB65B4025F2D3EE0091A00B /* TensorFlowLiteC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659BA25F1535F0091A00B /* TensorFlowLiteC.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CCB65B4225F2D3F40091A00B /* libTensorFlowLiteObjC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB65B4125F2D3F40091A00B /* libTensorFlowLiteObjC.a */; };
-		CCB65B4325F2D4090091A00B /* OnyxCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659AB25F1525C0091A00B /* OnyxCamera.framework */; };
-		CCB65B4425F2D4090091A00B /* OnyxCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659AB25F1525C0091A00B /* OnyxCamera.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CCB65B4525F2D4090091A00B /* onyx-core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB659AC25F1525C0091A00B /* onyx-core.framework */; };
+		CCB65B6A25F2E1DC0091A00B /* OnyxCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB65B6825F2E1DC0091A00B /* OnyxCamera.framework */; };
+		CCB65B6C25F2E1DC0091A00B /* onyx-core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB65B6925F2E1DC0091A00B /* onyx-core.framework */; };
+		CCB65B6E25F2E1F30091A00B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB65A9C25F19D8E0091A00B /* opencv2.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		CCB659CB25F155A10091A00B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				CCB65B4025F2D3EE0091A00B /* TensorFlowLiteC.framework in Embed Frameworks */,
-				CCB65B3E25F2D3D30091A00B /* opencv2.framework in Embed Frameworks */,
-				CCB659C825F155A10091A00B /* onyx-core.framework in Embed Frameworks */,
-				CCB65B4425F2D4090091A00B /* OnyxCamera.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		CCB65B3C25F2D39B0091A00B /* Embed PlugIns */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				CCB65B3B25F2D39B0091A00B /* OnyxCamera.bundle in Embed PlugIns */,
-			);
-			name = "Embed PlugIns";
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2637B179F039DFF0A3986610 /* libPods-cocoapod-example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cocoapod-example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +49,9 @@
 		CCB65A9C25F19D8E0091A00B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = Pods/OpenCV/opencv2.framework; sourceTree = "<group>"; };
 		CCB65B3A25F2D39B0091A00B /* OnyxCamera.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = OnyxCamera.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCB65B4125F2D3F40091A00B /* libTensorFlowLiteObjC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTensorFlowLiteObjC.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB65B6525F2E1BC0091A00B /* OnyxCamera.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = OnyxCamera.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCB65B6825F2E1DC0091A00B /* OnyxCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OnyxCamera.framework; path = Pods/OnyxCamera/OnyxCamera/Frameworks/OnyxCamera.framework; sourceTree = "<group>"; };
+		CCB65B6925F2E1DC0091A00B /* onyx-core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "onyx-core.framework"; path = "Pods/OnyxCamera/OnyxCamera/Frameworks/onyx-core.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,14 +59,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB65B6A25F2E1DC0091A00B /* OnyxCamera.framework in Frameworks */,
+				CCB65B6E25F2E1F30091A00B /* opencv2.framework in Frameworks */,
 				2DF8D3C221752900003F56E0 /* Assets.xcassets in Frameworks */,
-				CCB659C725F155A10091A00B /* onyx-core.framework in Frameworks */,
-				CCB65B4325F2D4090091A00B /* OnyxCamera.framework in Frameworks */,
-				CCB65B4525F2D4090091A00B /* onyx-core.framework in Frameworks */,
 				CCB65B4225F2D3F40091A00B /* libTensorFlowLiteObjC.a in Frameworks */,
-				CCB65B3D25F2D3D30091A00B /* opencv2.framework in Frameworks */,
 				CCB65B3F25F2D3EE0091A00B /* TensorFlowLiteC.framework in Frameworks */,
 				CCB659CE25F163AF0091A00B /* libPods-cocoapod-example.a in Frameworks */,
+				CCB65B6C25F2E1DC0091A00B /* onyx-core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +121,9 @@
 		C3C3F514823CC808838BACDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CCB65B6925F2E1DC0091A00B /* onyx-core.framework */,
+				CCB65B6825F2E1DC0091A00B /* OnyxCamera.framework */,
+				CCB65B6525F2E1BC0091A00B /* OnyxCamera.bundle */,
 				CCB65B4125F2D3F40091A00B /* libTensorFlowLiteObjC.a */,
 				CCB65B3A25F2D39B0091A00B /* OnyxCamera.bundle */,
 				CCB65A9C25F19D8E0091A00B /* opencv2.framework */,
@@ -179,8 +150,6 @@
 				2DF8D3B2217528FE003F56E0 /* Frameworks */,
 				2DF8D3B3217528FE003F56E0 /* Resources */,
 				78B5CB7C1C6CE075EF56DF03 /* [CP] Copy Pods Resources */,
-				CCB659CB25F155A10091A00B /* Embed Frameworks */,
-				CCB65B3C25F2D39B0091A00B /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
@@ -434,6 +403,7 @@
 					"$(PROJECT_DIR)/Pods/TensorFlowLiteC/Frameworks",
 					"/Users/chatcher/altXcodeProjects/onyx-camera-cocoapod/OnyxCamera/Frameworks",
 					"$(PROJECT_DIR)/Pods/OpenCV",
+					"$(PROJECT_DIR)/Pods/OnyxCamera/OnyxCamera/Frameworks",
 				);
 				INFOPLIST_FILE = "cocoapod-example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -464,6 +434,7 @@
 					"$(PROJECT_DIR)/Pods/TensorFlowLiteC/Frameworks",
 					"/Users/chatcher/altXcodeProjects/onyx-camera-cocoapod/OnyxCamera/Frameworks",
 					"$(PROJECT_DIR)/Pods/OpenCV",
+					"$(PROJECT_DIR)/Pods/OnyxCamera/OnyxCamera/Frameworks",
 				);
 				INFOPLIST_FILE = "cocoapod-example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

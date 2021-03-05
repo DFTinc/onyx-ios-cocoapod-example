@@ -12,7 +12,7 @@ PODS:
     - TensorFlowLiteC (= 2.4.0)
 
 DEPENDENCIES:
-  - OnyxCamera (from `~/altXcodeProjects/onyx-camera-cocoapod`)
+  - OnyxCamera (from `https://github.com/DFTinc/onyx-camera-cocoapod`, branch `6.12.1_dev`)
 
 SPEC REPOS:
   trunk:
@@ -22,7 +22,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   OnyxCamera:
-    :path: "~/altXcodeProjects/onyx-camera-cocoapod"
+    :branch: 6.12.1_dev
+    :git: https://github.com/DFTinc/onyx-camera-cocoapod
+
+CHECKOUT OPTIONS:
+  OnyxCamera:
+    :commit: 4467a92607e0730e6dc79225f16fb3d8c5857867
+    :git: https://github.com/DFTinc/onyx-camera-cocoapod
 
 SPEC CHECKSUMS:
   OnyxCamera: ff885f86f4b31b59412afa0a58c1724c1314a5be
@@ -30,6 +36,6 @@ SPEC CHECKSUMS:
   TensorFlowLiteC: 09f8ac75a76caeadb19bcfa694e97454cc1ecf87
   TensorFlowLiteObjC: 2cf94aac7c183ec3dac786fb96420c2ce6e7b820
 
-PODFILE CHECKSUM: 0ef4f6fde054cd051017d490e3864e397cbb47fc
+PODFILE CHECKSUM: 07c8a31dca14d07d3379ef5d09582d0c1a95a6a8
 
 COCOAPODS: 1.10.1
