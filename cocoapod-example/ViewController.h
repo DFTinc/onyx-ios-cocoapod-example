@@ -18,6 +18,8 @@
 
 @property OnyxResult* onyxResult;
 
+- (IBAction)capture:(UIButton *)sender;
+
 -(void(^)(OnyxResult* onyxResult))onyxSuccessCallback;
 
 -(void(^)(OnyxError* onyxError)) onyxErrorCallback;

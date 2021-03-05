@@ -73,16 +73,11 @@
     };
 }
 
-- (IBAction)capture:(id)sender {
+- (IBAction)capture:(UIButton *)sender {
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"3969-9138-6246-1-2")
+    .setLicenseKey(@"9634-1468-8960-1-2")
     .setShowLoadingSpinner(true)
-    .setUseManualCapture(false)
-    .setReturnRawImage(false)
-    .setReturnProcessedImage(true)
-    .setReturnEnhancedImage(false)
-    .setReturnWSQ(false)
     .setSuccessCallback([self onyxSuccessCallback])
     .setErrorCallback([self onyxErrorCallback])
     .setOnyxCallback([self onyxCallback]);
