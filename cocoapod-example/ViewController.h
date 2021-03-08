@@ -12,9 +12,9 @@
 
 @interface ViewController : UIViewController
 
-@property NSMutableArray* onyxResults;
+@property OnyxResult* onyxResult;
 
--(void(^)(NSMutableArray* onyxResults))onyxSuccessCallback;
+-(void(^)(OnyxResult* onyxResult))onyxSuccessCallback;
 
 -(void(^)(OnyxError* onyxError)) onyxErrorCallback;
 

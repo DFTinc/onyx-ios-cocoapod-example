@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITextView* detailTextView;
 @property NSData* rawGrayWSQData;
 @property NSData* WSQData;
-@property NSMutableArray* onyxResults;
+@property OnyxResult* onyxResult;
 
 - (IBAction)save:(id)sender;
 

@@ -6,5 +6,5 @@ target 'cocoapod-example' do
   # use_frameworks!
 
   # Pods for cocoapod-example
-    pod 'OnyxCamera', '~> 6.0.4'
+    pod 'OnyxCamera', :git => 'https://github.com/DFTinc/onyx-camera-cocoapod'
 end

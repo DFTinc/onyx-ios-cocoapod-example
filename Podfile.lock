@@ -1,28 +1,40 @@
 PODS:
-  - OnyxCamera (6.0.4):
-    - OpenCV (~> 3.4)
+  - OnyxCamera (6.12.1):
+    - OpenCV (= 3.4.5)
     - TensorFlowLiteObjC
-  - OpenCV (3.4.6)
-  - TensorFlowLiteC (2.2.0)
-  - TensorFlowLiteObjC (2.2.0):
-    - TensorFlowLiteC (= 2.2.0)
+  - OpenCV (3.4.5)
+  - TensorFlowLiteC (2.4.0):
+    - TensorFlowLiteC/Core (= 2.4.0)
+  - TensorFlowLiteC/Core (2.4.0)
+  - TensorFlowLiteObjC (2.4.0):
+    - TensorFlowLiteObjC/Core (= 2.4.0)
+  - TensorFlowLiteObjC/Core (2.4.0):
+    - TensorFlowLiteC (= 2.4.0)
 
 DEPENDENCIES:
-  - OnyxCamera (~> 6.0.4)
+  - OnyxCamera (from `https://github.com/DFTinc/onyx-camera-cocoapod`)
 
 SPEC REPOS:
   trunk:
-    - OnyxCamera
     - OpenCV
     - TensorFlowLiteC
     - TensorFlowLiteObjC
 
+EXTERNAL SOURCES:
+  OnyxCamera:
+    :git: https://github.com/DFTinc/onyx-camera-cocoapod
+
+CHECKOUT OPTIONS:
+  OnyxCamera:
+    :commit: 911a36b3ca39a27f259811e22c11ca59d0694e90
+    :git: https://github.com/DFTinc/onyx-camera-cocoapod
+
 SPEC CHECKSUMS:
-  OnyxCamera: b383d81accbc72bb54393095ef640656c7435c91
-  OpenCV: 1df7b8ab75900ef4365905b989bf60f5ca4101aa
-  TensorFlowLiteC: b3ab9e867b0b71052ca102a32a786555b330b02e
-  TensorFlowLiteObjC: 9adb471254e86ef81aa7d9d0d16743b8d853d95b
+  OnyxCamera: ff885f86f4b31b59412afa0a58c1724c1314a5be
+  OpenCV: 4171c39bdb17e65abda91fc8195d44cb347750f7
+  TensorFlowLiteC: 09f8ac75a76caeadb19bcfa694e97454cc1ecf87
+  TensorFlowLiteObjC: 2cf94aac7c183ec3dac786fb96420c2ce6e7b820
 
-PODFILE CHECKSUM: a1fac50d205fdb7973e3b406e3db4eae95b1cd98
+PODFILE CHECKSUM: 010f9d7aeccf6329f3e7b6f7a5cc90b2349973b3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
