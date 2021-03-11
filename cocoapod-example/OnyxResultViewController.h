@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
+#import "iCarousel.h"
+#import <MessageUI/MessageUI.h>
 
-@interface OnyxResultViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView* rawImage;
-@property (strong, nonatomic) IBOutlet UIImageView* grayRawImage;
-@property (strong, nonatomic) IBOutlet UIImageView* processedImage;
-@property (strong, nonatomic) IBOutlet UIImageView* enhancedImage;
-@property (strong, nonatomic) IBOutlet UIImageView* blackWhiteImage;
-@property (strong, nonatomic) IBOutlet UITextView* detailTextView;
-@property NSData* rawGrayWSQData;
-@property NSData* WSQData;
-@property OnyxResult* onyxResult;
+@interface OnyxResultViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, MFMailComposeViewControllerDelegate>
+
+@property OnyxResult *onyxResult;
+@property (nonatomic, weak) IBOutlet UIStackView *infoStackView;
+@property (nonatomic, weak) IBOutlet UITextView *detailTextView;
+@property (nonatomic, weak) IBOutlet UIStackView *processedStackView;
+@property (nonatomic, weak) IBOutlet iCarousel *processedCarousel;
+@property (nonatomic, weak) IBOutlet UIStackView *rawStackView;
+@property (nonatomic, weak) IBOutlet iCarousel *rawCarousel;
 
 - (IBAction)save:(id)sender;
 

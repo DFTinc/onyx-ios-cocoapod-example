@@ -15,6 +15,7 @@
 		2DF8D3C821752900003F56E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3C721752900003F56E0 /* main.m */; };
 		2DF8D3CF21752959003F56E0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3CE21752958003F56E0 /* Podfile */; };
 		2DF8D3DF217579C3003F56E0 /* OnyxResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */; };
+		5BC0DAAF25FAB9BE00FB5848 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC0DAAE25FAB9BE00FB5848 /* MessageUI.framework */; };
 		84C0434C560AAC6EABBE9AFE /* libPods-cocoapod-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2637B179F039DFF0A3986610 /* libPods-cocoapod-example.a */; };
 		CCB65CDA25F6E86D0091A00B /* onyx_4f_logo_v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD125F6E86C0091A00B /* onyx_4f_logo_v2@2x.png */; };
 		CCB65CDB25F6E86D0091A00B /* too_far.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD225F6E86C0091A00B /* too_far.png */; };
@@ -42,6 +43,7 @@
 		2DF8D3CE21752958003F56E0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2DF8D3DD21757983003F56E0 /* OnyxResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnyxResultViewController.h; sourceTree = "<group>"; };
 		2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnyxResultViewController.m; sourceTree = "<group>"; };
+		5BC0DAAE25FAB9BE00FB5848 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A7A276ACA3234E76D7D3A48C /* Pods-cocoapod-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoapod-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example.debug.xcconfig"; sourceTree = "<group>"; };
 		AA47445740D5569DA4D935C5 /* Pods-cocoapod-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoapod-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example.release.xcconfig"; sourceTree = "<group>"; };
 		CCB65CAF25F6E09B0091A00B /* onyx_4f_logo_v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "onyx_4f_logo_v2@2x.png"; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC0DAAF25FAB9BE00FB5848 /* MessageUI.framework in Frameworks */,
 				84C0434C560AAC6EABBE9AFE /* libPods-cocoapod-example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,13 +123,13 @@
 				2DF8D3B9217528FE003F56E0 /* AppDelegate.m */,
 				2DF8D3BB217528FE003F56E0 /* ViewController.h */,
 				2DF8D3BC217528FE003F56E0 /* ViewController.mm */,
+				2DF8D3DD21757983003F56E0 /* OnyxResultViewController.h */,
+				2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */,
 				2DF8D3BE217528FE003F56E0 /* Main.storyboard */,
 				2DF8D3C121752900003F56E0 /* Assets.xcassets */,
 				2DF8D3C321752900003F56E0 /* LaunchScreen.storyboard */,
 				2DF8D3C621752900003F56E0 /* Info.plist */,
 				2DF8D3C721752900003F56E0 /* main.m */,
-				2DF8D3DD21757983003F56E0 /* OnyxResultViewController.h */,
-				2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */,
 			);
 			path = "cocoapod-example";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 		C3C3F514823CC808838BACDD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BC0DAAE25FAB9BE00FB5848 /* MessageUI.framework */,
 				2637B179F039DFF0A3986610 /* libPods-cocoapod-example.a */,
 			);
 			name = Frameworks;
@@ -348,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -401,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -414,6 +418,7 @@
 			baseConfigurationReference = A7A276ACA3234E76D7D3A48C /* Pods-cocoapod-example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SK8JVNSJE9;
 				ENABLE_BITCODE = NO;
@@ -423,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dft.onyx.ios.cocoapod-example";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dft.onyx.ios.cocoapod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -434,6 +439,7 @@
 			baseConfigurationReference = AA47445740D5569DA4D935C5 /* Pods-cocoapod-example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SK8JVNSJE9;
 				ENABLE_BITCODE = NO;
@@ -443,7 +449,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dft.onyx.ios.cocoapod-example";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dft.onyx.ios.cocoapod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

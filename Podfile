@@ -6,5 +6,9 @@ target 'cocoapod-example' do
   # use_frameworks!
 
   # Pods for cocoapod-example
-    pod 'OnyxCamera', :git => 'https://github.com/DFTinc/onyx-camera-cocoapod'
+  pod 'OnyxCamera', :git => 'https://github.com/DFTinc/onyx-camera-cocoapod'
+  
+  # Pod for displaying the result image(s) in a carausel view
+  pod 'iCarousel'
+
 end
