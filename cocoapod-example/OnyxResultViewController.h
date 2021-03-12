@@ -14,8 +14,8 @@
 @interface OnyxResultViewController : UIViewController <iCarouselDataSource, iCarouselDelegate, MFMailComposeViewControllerDelegate>
 
 @property OnyxResult *onyxResult;
-@property (nonatomic, weak) IBOutlet UIStackView *infoStackView;
-@property (nonatomic, weak) IBOutlet UITextView *detailTextView;
+@property (nonatomic, weak) IBOutlet UIStackView *livenessStackView;
+@property (nonatomic, weak) IBOutlet UITextView *livenessTextView;
 @property (nonatomic, weak) IBOutlet UIStackView *processedStackView;
 @property (nonatomic, weak) IBOutlet iCarousel *processedCarousel;
 @property (nonatomic, weak) IBOutlet UIStackView *rawStackView;

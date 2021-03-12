@@ -39,14 +39,41 @@
     self.processedCarousel.clipsToBounds = NO;
     self.processedCarousel.backgroundColor = [UIColor clearColor];
     
-    [self updateResults];
+    if (_onyxResult) {
+        
+        // Processed Images (1 or 4 or none)
+        if ([_onyxResult getProcessedFingerprintImages] && [[_onyxResult getProcessedFingerprintImages] count] > 0) {
+            self.processedCarousel.hidden = NO;
+        } else {
+            self.processedCarousel.hidden = YES;
+        }
+        
+        // Raw Images (1 or 4 or none)
+        NSMutableArray *rawImages = [_onyxResult getRawFingerprintImages];
+        if (rawImages && [rawImages count] > 0) {
+            self.rawStackView.hidden = NO;
+        } else {
+            self.rawStackView.hidden = YES;
+        }
+        
+        // Get Liveness Confidence
+        if ([_onyxResult getMetrics]) {
+            float livenessConfidence = [[_onyxResult getMetrics] getLivenessConfidence];
+            if (livenessConfidence != -1) {
+                self.livenessTextView.text = [NSString stringWithFormat:@"Liveness Confidence: %f", livenessConfidence];
+                self.livenessStackView.hidden = NO;
+            } else {
+                self.livenessTextView.text = @"";
+                self.livenessStackView.hidden = YES;
+            }
+        }
+    }
 
 }
     
 #pragma mark - Actions
 
 - (IBAction)save:(id)sender {
-   // UIImageWriteToSavedPhotosAlbum([[_onyxResult getRawFingerprintImages] objectAtIndex:0], nil, nil, nil);
     if (_onyxResult) {
         
         if ([_onyxResult getProcessedFingerprintImages] && [[_onyxResult getProcessedFingerprintImages] count] > 0) {
@@ -62,63 +89,64 @@
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
             }
         }
+        
+        // Save WSQ & Template as File
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
 
-//        // Save Enhanced
-//        if ([_onyxResult getEnhancedFingerprintImages]) {
-//            NSMutableArray *images = [_onyxResult getEnhancedFingerprintImages];
-//            for (UIImage *image in images) {
-//                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-//            }
-//        }
-//
-//        // Save Back-White
-//        if ([_onyxResult getEnhancedFingerprintImages]) {
-//            NSMutableArray *images = [_onyxResult getBlackWhiteProcessedFingerprintImages];
-//            for (UIImage *image in images) {
-//                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-//            }
-//        }
-//
-//        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, YES);
-//        NSString *docsDir = [dirPaths objectAtIndex:0];
-//
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        [formatter setDateFormat:@"dd-MM-yyyy-HH-mm-ss"];
-//        NSDate *currentDate = [NSDate date];
-//        NSString *dateString = [formatter stringFromDate:currentDate];
-//
-//        // Save WSQ
-//        if ([_onyxResult getWsqData]) {
-//            NSMutableArray* wsqData = [_onyxResult getWsqData];
-//
-//            if (wsqData && [wsqData count] > 0) {
-//                for (int i=0; i<wsqData.count; i++) {
-//                    NSData *wsq = [wsqData objectAtIndex:i];
-//                    NSString *filename = [NSString stringWithFormat:@"%@-wsq-%d.wsq",dateString,i+1];
-//                    NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:filename]];
-//                    [wsq writeToFile:databasePath atomically:YES];
-//
-//                }
-//
-//            }
-//        }
-//
-//        // Save Template
-//        if ([_onyxResult getWsqData]) {
-//            NSMutableArray* templateData = [_onyxResult getFingerprintTemplates];
-//
-//            if (templateData && [templateData count] > 0) {
-//
-//                for (int i=0; i<templateData.count; i++) {
-//                    NSData *data = [templateData objectAtIndex:i];
-//                    NSString *filename = [NSString stringWithFormat:@"%@-template-%d.txt",dateString,i+1];
-//                    NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:filename]];
-//                    [[data base64EncodedDataWithOptions:NSUTF8StringEncoding] writeToFile:databasePath atomically:YES];
-//
-//                }
-//
-//            }
-//        }
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd-MM-yyyy-HH-mm-ss"];
+        NSDate *currentDate = [NSDate date];
+        NSString *dateString = [formatter stringFromDate:currentDate];
+
+        // Save WSQ
+        if ([_onyxResult getWsqData]) {
+            NSMutableArray* wsqData = [_onyxResult getWsqData];
+            if (wsqData && [wsqData count] > 0) {
+                for (int i=0; i<wsqData.count; i++) {
+                    NSData *wsq = [wsqData objectAtIndex:i];
+                    NSString *filename = [NSString stringWithFormat:@"%@-wsq-%d.wsq",dateString,i+1];
+                    NSString *filePath = [docsDir stringByAppendingPathComponent:filename];
+                    [wsq writeToFile:filePath atomically:YES];
+                }
+
+            }
+        }
+
+        // Save Template
+        if ([_onyxResult getWsqData]) {
+            NSMutableArray* templateData = [_onyxResult getFingerprintTemplates];
+            if (templateData && [templateData count] > 0) {
+                for (int i=0; i<templateData.count; i++) {
+                    NSData *data = [templateData objectAtIndex:i];
+                    NSString *filename = [NSString stringWithFormat:@"%@-template-%d.txt",dateString,i+1];
+                    NSString *filePath = [docsDir stringByAppendingPathComponent:filename];
+                    [[data base64EncodedDataWithOptions:NSUTF8StringEncoding] writeToFile:filePath atomically:YES];
+
+                }
+
+            }
+        }
+        
+        /*
+         * Legacy
+        */
+        //        // Save Enhanced
+        //        if ([_onyxResult getEnhancedFingerprintImages]) {
+        //            NSMutableArray *images = [_onyxResult getEnhancedFingerprintImages];
+        //            for (UIImage *image in images) {
+        //                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        //            }
+        //        }
+        //
+        //        // Save Back-White
+        //        if ([_onyxResult getEnhancedFingerprintImages]) {
+        //            NSMutableArray *images = [_onyxResult getBlackWhiteProcessedFingerprintImages];
+        //            for (UIImage *image in images) {
+        //                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        //            }
+        //        }
+        //
         
     }
 
@@ -297,39 +325,7 @@
                      }
      ];
 }
-#pragma mark - Present Results
-- (void)updateResults {
-    if (_onyxResult) {
-        NSMutableArray *processedImages = [_onyxResult getProcessedFingerprintImages];
-        
-        if (processedImages && [processedImages count] > 0) {
-            self.processedCarousel.hidden = NO;
-        } else {
-            self.processedCarousel.hidden = NO;
-        }
-        
-        NSMutableArray *rawImages = [_onyxResult getRawFingerprintImages];
-        
-        if (rawImages && [rawImages count] > 0) {
-            self.rawStackView.hidden = NO;
-        } else {
-            self.rawStackView.hidden = NO;
-        }
-        
-        if ([_onyxResult getMetrics]) {
-            float livenessConfidence = [[_onyxResult getMetrics] getLivenessConfidence];
-            if (livenessConfidence != -1) {
-                self.detailTextView.text = [NSString stringWithFormat:@"Liveness Confidence: %f", livenessConfidence];
-                self.infoStackView.hidden = NO;
-            } else {
-                self.detailTextView.text = @"";
-                self.infoStackView.hidden = YES;
-            }
-        }
 
-        
-    }
-}
 #pragma mark - iCarousel
 
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
@@ -397,20 +393,19 @@
     }
     
 
-    // Metrics
-    NSString *resultText = nil;
+    // NFIQ Metrics
+    NSString *nfiqText = nil;
     NSMutableArray* nfiqMetrics = [[_onyxResult getMetrics] getNfiqMetrics];
     if (nfiqMetrics) {
         
         if (index < [nfiqMetrics count]) {
             int nfiqScoreFingerprint = [nfiqMetrics[index] getNfiqScore];
-            resultText = [NSString stringWithFormat:@"Finger %d\nNFIQ Score: %d", (int)index+1, nfiqScoreFingerprint];
-            label.text = resultText;
+            nfiqText = [NSString stringWithFormat:@"Finger %d\nNFIQ Score: %d", (int)index+1, nfiqScoreFingerprint];
+            label.text = nfiqText;
         }
     }
    
     
-    //    NSMutableArray* isoFingerprintTemplates = [_onyxResult getISOFingerprintTemplates];
     
     // Templates
     NSMutableArray* fingerprintTemplates = [_onyxResult getFingerprintTemplates];
@@ -420,8 +415,6 @@
                                              scales:[NSArray arrayWithObjects:@"0.6", @"0.8", @"1.0", @"1.2", @"1.4",nil]];
         NSLog(@"Match score: %f", matchScore);
     }
-    
-    
     
     if (covers.count > 0 && [[covers objectAtIndex:index] isKindOfClass:[UIImage class]]) {
         ((UIImageView *)view).image = [[covers objectAtIndex:index] copy];

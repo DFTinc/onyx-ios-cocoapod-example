@@ -1,5 +1,6 @@
 PODS:
-  - OnyxCamera (6.12.1):
+  - iCarousel (1.8.3)
+  - OnyxCamera (7.0.1):
     - OpenCV (= 3.4.5)
     - TensorFlowLiteObjC
   - OpenCV (3.4.5)
@@ -12,29 +13,24 @@ PODS:
     - TensorFlowLiteC (= 2.4.0)
 
 DEPENDENCIES:
-  - OnyxCamera (from `https://github.com/DFTinc/onyx-camera-cocoapod`)
+  - iCarousel
+  - OnyxCamera
 
 SPEC REPOS:
   trunk:
+    - iCarousel
+    - OnyxCamera
     - OpenCV
     - TensorFlowLiteC
     - TensorFlowLiteObjC
 
-EXTERNAL SOURCES:
-  OnyxCamera:
-    :git: https://github.com/DFTinc/onyx-camera-cocoapod
-
-CHECKOUT OPTIONS:
-  OnyxCamera:
-    :commit: 911a36b3ca39a27f259811e22c11ca59d0694e90
-    :git: https://github.com/DFTinc/onyx-camera-cocoapod
-
 SPEC CHECKSUMS:
-  OnyxCamera: ff885f86f4b31b59412afa0a58c1724c1314a5be
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  OnyxCamera: 00bdfd9b17a964d5b432af140502a1f10efd86c5
   OpenCV: 4171c39bdb17e65abda91fc8195d44cb347750f7
   TensorFlowLiteC: 09f8ac75a76caeadb19bcfa694e97454cc1ecf87
   TensorFlowLiteObjC: 2cf94aac7c183ec3dac786fb96420c2ce6e7b820
 
-PODFILE CHECKSUM: 010f9d7aeccf6329f3e7b6f7a5cc90b2349973b3
+PODFILE CHECKSUM: ab1cd3f37e7e2f9afa524de8e5cd7dddfec1f668
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.8.4

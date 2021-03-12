@@ -15,17 +15,11 @@
 		2DF8D3C821752900003F56E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3C721752900003F56E0 /* main.m */; };
 		2DF8D3CF21752959003F56E0 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2DF8D3CE21752958003F56E0 /* Podfile */; };
 		2DF8D3DF217579C3003F56E0 /* OnyxResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */; };
+		5B54903125FBF4B3005180DA /* onyx_4f_logo_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B54902D25FBF4B3005180DA /* onyx_4f_logo_v2.png */; };
+		5B54903225FBF4B3005180DA /* onyx_4f_logo_v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B54902F25FBF4B3005180DA /* onyx_4f_logo_v2@2x.png */; };
+		5B54905125FBF53A005180DA /* capture_unet_nn_quant.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 5B54904F25FBF539005180DA /* capture_unet_nn_quant.tflite */; };
 		5BC0DAAF25FAB9BE00FB5848 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC0DAAE25FAB9BE00FB5848 /* MessageUI.framework */; };
 		84C0434C560AAC6EABBE9AFE /* libPods-cocoapod-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2637B179F039DFF0A3986610 /* libPods-cocoapod-example.a */; };
-		CCB65CDA25F6E86D0091A00B /* onyx_4f_logo_v2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD125F6E86C0091A00B /* onyx_4f_logo_v2@2x.png */; };
-		CCB65CDB25F6E86D0091A00B /* too_far.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD225F6E86C0091A00B /* too_far.png */; };
-		CCB65CDC25F6E86D0091A00B /* onyx_4f_logo_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD325F6E86C0091A00B /* onyx_4f_logo_v2.png */; };
-		CCB65CDD25F6E86D0091A00B /* onyx_4f_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD425F6E86C0091A00B /* onyx_4f_logo.png */; };
-		CCB65CDE25F6E86D0091A00B /* too_close.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD525F6E86C0091A00B /* too_close.png */; };
-		CCB65CDF25F6E86D0091A00B /* capture_unet_class_map.json in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD625F6E86C0091A00B /* capture_unet_class_map.json */; };
-		CCB65CE025F6E86D0091A00B /* capture.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD725F6E86D0091A00B /* capture.png */; };
-		CCB65CE125F6E86D0091A00B /* capture_unet_nn_quant.tflite in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD825F6E86D0091A00B /* capture_unet_nn_quant.tflite */; };
-		CCB65CE225F6E86D0091A00B /* white_onyx_embossed.png in Resources */ = {isa = PBXBuildFile; fileRef = CCB65CD925F6E86D0091A00B /* white_onyx_embossed.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,27 +37,12 @@
 		2DF8D3CE21752958003F56E0 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2DF8D3DD21757983003F56E0 /* OnyxResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OnyxResultViewController.h; sourceTree = "<group>"; };
 		2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnyxResultViewController.m; sourceTree = "<group>"; };
+		5B54902E25FBF4B3005180DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/onyx_4f_logo_v2.png; sourceTree = "<group>"; };
+		5B54903025FBF4B3005180DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/onyx_4f_logo_v2@2x.png"; sourceTree = "<group>"; };
+		5B54904F25FBF539005180DA /* capture_unet_nn_quant.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = capture_unet_nn_quant.tflite; sourceTree = "<group>"; };
 		5BC0DAAE25FAB9BE00FB5848 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A7A276ACA3234E76D7D3A48C /* Pods-cocoapod-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoapod-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example.debug.xcconfig"; sourceTree = "<group>"; };
 		AA47445740D5569DA4D935C5 /* Pods-cocoapod-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocoapod-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-cocoapod-example/Pods-cocoapod-example.release.xcconfig"; sourceTree = "<group>"; };
-		CCB65CAF25F6E09B0091A00B /* onyx_4f_logo_v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "onyx_4f_logo_v2@2x.png"; sourceTree = "<group>"; };
-		CCB65CB025F6E09B0091A00B /* capture_unet_nn_quant.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = capture_unet_nn_quant.tflite; sourceTree = "<group>"; };
-		CCB65CB125F6E09C0091A00B /* capture_unet_class_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = capture_unet_class_map.json; sourceTree = "<group>"; };
-		CCB65CB225F6E09C0091A00B /* white_onyx_embossed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_onyx_embossed.png; sourceTree = "<group>"; };
-		CCB65CB325F6E09C0091A00B /* capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture.png; sourceTree = "<group>"; };
-		CCB65CB425F6E09C0091A00B /* too_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = too_far.png; sourceTree = "<group>"; };
-		CCB65CB525F6E09C0091A00B /* onyx_4f_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onyx_4f_logo.png; sourceTree = "<group>"; };
-		CCB65CB625F6E09C0091A00B /* onyx_4f_logo_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onyx_4f_logo_v2.png; sourceTree = "<group>"; };
-		CCB65CB725F6E09C0091A00B /* too_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = too_close.png; sourceTree = "<group>"; };
-		CCB65CD125F6E86C0091A00B /* onyx_4f_logo_v2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "onyx_4f_logo_v2@2x.png"; path = "Pods/OnyxCamera/OnyxCamera/Assets/onyx_4f_logo_v2@2x.png"; sourceTree = "<group>"; };
-		CCB65CD225F6E86C0091A00B /* too_far.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = too_far.png; path = Pods/OnyxCamera/OnyxCamera/Assets/too_far.png; sourceTree = "<group>"; };
-		CCB65CD325F6E86C0091A00B /* onyx_4f_logo_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onyx_4f_logo_v2.png; path = Pods/OnyxCamera/OnyxCamera/Assets/onyx_4f_logo_v2.png; sourceTree = "<group>"; };
-		CCB65CD425F6E86C0091A00B /* onyx_4f_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onyx_4f_logo.png; path = Pods/OnyxCamera/OnyxCamera/Assets/onyx_4f_logo.png; sourceTree = "<group>"; };
-		CCB65CD525F6E86C0091A00B /* too_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = too_close.png; path = Pods/OnyxCamera/OnyxCamera/Assets/too_close.png; sourceTree = "<group>"; };
-		CCB65CD625F6E86C0091A00B /* capture_unet_class_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = capture_unet_class_map.json; path = Pods/OnyxCamera/OnyxCamera/Assets/capture_unet_class_map.json; sourceTree = "<group>"; };
-		CCB65CD725F6E86D0091A00B /* capture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = capture.png; path = Pods/OnyxCamera/OnyxCamera/Assets/capture.png; sourceTree = "<group>"; };
-		CCB65CD825F6E86D0091A00B /* capture_unet_nn_quant.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; name = capture_unet_nn_quant.tflite; path = Pods/OnyxCamera/OnyxCamera/Assets/capture_unet_nn_quant.tflite; sourceTree = "<group>"; };
-		CCB65CD925F6E86D0091A00B /* white_onyx_embossed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_onyx_embossed.png; path = Pods/OnyxCamera/OnyxCamera/Assets/white_onyx_embossed.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,24 +61,6 @@
 		2DF8D3AC217528FE003F56E0 = {
 			isa = PBXGroup;
 			children = (
-				CCB65CB125F6E09C0091A00B /* capture_unet_class_map.json */,
-				CCB65CB025F6E09B0091A00B /* capture_unet_nn_quant.tflite */,
-				CCB65CD825F6E86D0091A00B /* capture_unet_nn_quant.tflite */,
-				CCB65CB325F6E09C0091A00B /* capture.png */,
-				CCB65CD625F6E86C0091A00B /* capture_unet_class_map.json */,
-				CCB65CD725F6E86D0091A00B /* capture.png */,
-				CCB65CB625F6E09C0091A00B /* onyx_4f_logo_v2.png */,
-				CCB65CD325F6E86C0091A00B /* onyx_4f_logo_v2.png */,
-				CCB65CAF25F6E09B0091A00B /* onyx_4f_logo_v2@2x.png */,
-				CCB65CB525F6E09C0091A00B /* onyx_4f_logo.png */,
-				CCB65CB725F6E09C0091A00B /* too_close.png */,
-				CCB65CD425F6E86C0091A00B /* onyx_4f_logo.png */,
-				CCB65CD525F6E86C0091A00B /* too_close.png */,
-				CCB65CB425F6E09C0091A00B /* too_far.png */,
-				CCB65CB225F6E09C0091A00B /* white_onyx_embossed.png */,
-				CCB65CD125F6E86C0091A00B /* onyx_4f_logo_v2@2x.png */,
-				CCB65CD225F6E86C0091A00B /* too_far.png */,
-				CCB65CD925F6E86D0091A00B /* white_onyx_embossed.png */,
 				2DF8D3CE21752958003F56E0 /* Podfile */,
 				2DF8D3B7217528FE003F56E0 /* cocoapod-example */,
 				2DF8D3B6217528FE003F56E0 /* Products */,
@@ -125,6 +86,9 @@
 				2DF8D3BC217528FE003F56E0 /* ViewController.mm */,
 				2DF8D3DD21757983003F56E0 /* OnyxResultViewController.h */,
 				2DF8D3DE217579C3003F56E0 /* OnyxResultViewController.m */,
+				5B54902D25FBF4B3005180DA /* onyx_4f_logo_v2.png */,
+				5B54902F25FBF4B3005180DA /* onyx_4f_logo_v2@2x.png */,
+				5B54904F25FBF539005180DA /* capture_unet_nn_quant.tflite */,
 				2DF8D3BE217528FE003F56E0 /* Main.storyboard */,
 				2DF8D3C121752900003F56E0 /* Assets.xcassets */,
 				2DF8D3C321752900003F56E0 /* LaunchScreen.storyboard */,
@@ -211,17 +175,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCB65CDA25F6E86D0091A00B /* onyx_4f_logo_v2@2x.png in Resources */,
-				CCB65CDB25F6E86D0091A00B /* too_far.png in Resources */,
-				CCB65CDC25F6E86D0091A00B /* onyx_4f_logo_v2.png in Resources */,
-				CCB65CDD25F6E86D0091A00B /* onyx_4f_logo.png in Resources */,
-				CCB65CDE25F6E86D0091A00B /* too_close.png in Resources */,
-				CCB65CDF25F6E86D0091A00B /* capture_unet_class_map.json in Resources */,
-				CCB65CE025F6E86D0091A00B /* capture.png in Resources */,
-				CCB65CE125F6E86D0091A00B /* capture_unet_nn_quant.tflite in Resources */,
-				CCB65CE225F6E86D0091A00B /* white_onyx_embossed.png in Resources */,
 				2DF8D3C521752900003F56E0 /* LaunchScreen.storyboard in Resources */,
+				5B54903125FBF4B3005180DA /* onyx_4f_logo_v2.png in Resources */,
 				2DF8D3C221752900003F56E0 /* Assets.xcassets in Resources */,
+				5B54905125FBF53A005180DA /* capture_unet_nn_quant.tflite in Resources */,
+				5B54903225FBF4B3005180DA /* onyx_4f_logo_v2@2x.png in Resources */,
 				2DF8D3CF21752959003F56E0 /* Podfile in Resources */,
 				2DF8D3C0217528FE003F56E0 /* Main.storyboard in Resources */,
 			);
@@ -298,6 +256,22 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		5B54902D25FBF4B3005180DA /* onyx_4f_logo_v2.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B54902E25FBF4B3005180DA /* Base */,
+			);
+			name = onyx_4f_logo_v2.png;
+			sourceTree = "<group>";
+		};
+		5B54902F25FBF4B3005180DA /* onyx_4f_logo_v2@2x.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B54903025FBF4B3005180DA /* Base */,
+			);
+			name = "onyx_4f_logo_v2@2x.png";
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -352,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -405,7 +379,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -422,6 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SK8JVNSJE9;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = "cocoapod-example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -443,12 +418,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SK8JVNSJE9;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				INFOPLIST_FILE = "cocoapod-example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dft.onyx.ios.cocoapod;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

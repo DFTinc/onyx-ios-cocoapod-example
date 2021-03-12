@@ -14,7 +14,7 @@ pod install
 ```
 ***NOTE***
 
-OnyxCamera cocoapod 6.0.4 now implements the latest ONYX four finger simultaneous capture process you will see a breaking change from the previous single finger capture cocoapods. ONYX no longer returns a single OnyxResult file it returns an array of files representing each individual fingerprint and is now denoted as
+OnyxCamera cocoapod 7.0.1 now implements the latest ONYX four finger simultaneous capture process you will see a breaking change from the previous single finger capture cocoapods. ONYX no longer returns a single OnyxResult file it returns an array of files representing each individual fingerprint and is now denoted as
 ```
 onyxResults
 ```
@@ -23,6 +23,27 @@ You will see
 onyxResults
 ```
 referenced below in the implementation sections, so if you have previously implmented the OnyxCamera cocoapod for single finger capture, please pay special attention to this README to implement the changes.
+
+
+## Requirements
+- Minimum iOS Deployment Target 9.0
+- xCode 11 & 12
+
+## Known issues
+### Archiving app with iOS Deployment Target 9.x OR 10.x will fail. 
+Reason: OnyxCamera fails to archive app with "armv7" architecture included.
+
+Solution: 
+STEP 1: xCode -> App Target -> Build Settings -> set "YES" to "Build Active Architectures Only [Release]"
+STEP 2: plug in your iOS device -> select "Your iOS device" as build target (instead of "Any iOS Device (arm64, armv7))
+STEP 3: Archive app
+
+### 3 files must be added manually into your project project:
+```
+onyx_4f_logo_v2.png
+onyx_4f_logo_v2@2x.png
+capture_unet_nn_quant.tflite
+```
 
 ## How to integrate OnyxCamera CocoaPod
 
@@ -57,7 +78,7 @@ pod init
 * Add the `OnyxCamera` cocoapod to the Podfile
 
 ```
-pod 'OnyxCamera', '~> 6.0.4'
+pod 'OnyxCamera', '~> 7.0.1'
 ```
 
 ```
@@ -69,9 +90,20 @@ target 'onyx-cocoapod-example' do
   # use_frameworks!
 
   # Pods for cocoapod-example
-    pod 'OnyxCamera', '~> 6.0.4'
+    pod 'OnyxCamera', '~> 7.0.1'
 end
 ```
+
+* Add 3 files to your project. 
+
+```
+onyx_4f_logo_v2.png
+onyx_4f_logo_v2@2x.png
+capture_unet_nn_quant.tflite
+```
+
+Otherwise the OnyxCamera will crash!
+
 * Change the #import path for TFLTensorFlowLite.h in CaptureNetController.h
 
 Navigate to the "Pods" Project area of your workspace NOT the "Pods" driectory in your project section of your project.
@@ -164,12 +196,19 @@ to
         NSLog(@"Onyx Error Callback");
         dispatch_async(dispatch_get_main_queue(), ^{
             //            [self stopSpinnner];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ONYX Error"
-                                                            message:[NSString stringWithFormat:@"ErrorCode: %d, ErrorMessage:%@, Error:%@", onyxError.error, onyxError.errorMessage, onyxError.exception]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"ONYX Error"
+                                          message:[NSString stringWithFormat:@"ErrorCode: %d, ErrorMessage:%@, Error:%@", onyxError.error, onyxError.errorMessage, onyxError.exception]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction *okAction = [UIAlertAction
+                        actionWithTitle:@"OK"
+                                  style:UIAlertActionStyleDefault
+                                handler:nil];
+
+            [alertController addAction:okAction];
+
+            [self presentViewController:alertController animated:YES completion:nil];
         });
             
     };
@@ -190,11 +229,14 @@ to
 OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
     .setLicenseKey(@"onyx-license-key-goes-here")
-    .setReturnRawImage(true)
-    .setReturnGrayRawImage(true)
-    .setReturnProcessedImage(true)
-    .setReturnBlackWhiteProcessedImage(true)
-    .setReturnEnhancedImage(true)
+    .setReturnRawImage(_returnRawImage.on)
+    .setReturnProcessedImage(_returnProcessedImage.on)
+    .setReturnWSQ(_returnWsq.on)
+    .setReturnFingerprintTemplate(_returnFingerprintTemplate.on)
+    .setReturnISOFingerprintTemplate(true)
+    .setUseOnyxLive(_useOnyxLive.on)
+    .setReticleOrientation((ReticleOrientation)_reticleOrientation.selectedSegmentIndex)
+    .setShowLoadingSpinner(YES)
     .setSuccessCallback([self onyxSuccessCallback])
     .setErrorCallback([self onyxErrorCallback])
     .setOnyxCallback([self onyxCallback]);
@@ -225,15 +267,14 @@ OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] 
 #import "ViewController.h"
 
 @interface OnyxResultViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIImageView* rawImage;
-@property (strong, nonatomic) IBOutlet UIImageView* grayRawImage;
-@property (strong, nonatomic) IBOutlet UIImageView* processedImage;
-@property (strong, nonatomic) IBOutlet UIImageView* enhancedImage;
-@property (strong, nonatomic) IBOutlet UIImageView* blackWhiteImage;
-@property (strong, nonatomic) IBOutlet UITextView* detailTextView;
-@property NSData* rawGrayWSQData;
-@property NSData* WSQData;
-@property NSMutableArray* onyxResults;
+
+@property OnyxResult *onyxResult;
+@property (nonatomic, weak) IBOutlet UIStackView *livenessStackView;
+@property (nonatomic, weak) IBOutlet UITextView *livenessTextView;
+@property (nonatomic, weak) IBOutlet UIStackView *processedStackView;
+@property (nonatomic, weak) IBOutlet iCarousel *processedCarousel;
+@property (nonatomic, weak) IBOutlet UIStackView *rawStackView;
+@property (nonatomic, weak) IBOutlet iCarousel *rawCarousel;
 
 - (IBAction)save:(id)sender;
 
@@ -244,6 +285,7 @@ OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] 
 ```
 #import <Foundation/Foundation.h>
 #import "OnyxResultViewController.h"
+#import <OnyxCamera/OnyxMatch.h>
 
 @interface OnyxResultViewController ()
 
@@ -254,48 +296,123 @@ OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    OnyxResult* _onyxResult = _onyxResults[0];
-    NSLog(@"onyxResults %lu", (unsigned long) [_onyxResults count]);
-    _rawImage.image = [_onyxResult getRawFingerprintImage]; // _onyxResult.rawFingerprintImage;
-    _processedImage.image = [_onyxResult getProcessedFingerprintImage]; // _onyxResult.processedFingerprintImage;
-    _enhancedImage.image = [_onyxResult getEnhancedFingerprintImage]; // _onyxResult.enhancedFingerprintImage;
-    _grayRawImage.image = [_onyxResult getGrayRawFingerprintImage]; // _onyxResult.grayRawFingerprintImage;
-    _blackWhiteImage.image = [_onyxResult getBlackWhiteProcessedFingerprintImage]; // _onyxResult.blackWhiteFingerprintImage;
     
-    _WSQData = [_onyxResult getWsqData]; // _onyxResult.wsqData;
-    _rawGrayWSQData = [_onyxResult getGrayRawWsqData]; // _onyxResult.grayRawWsqData;
-    
-    int nfiqScore = [[[_onyxResult getMetrics] getNfiqMetrics] getNfiqScore]; //_onyxResult.captureMetrics.nfiqMetrics.nfiqScore;
-    float mlpScore = [[[_onyxResult getMetrics] getNfiqMetrics] getMlpScore]; //_onyxResult.captureMetrics.nfiqMetrics.mlpScore;
-    float focusQuality = [[_onyxResult getMetrics] getFocusQuality]; //_onyxResult.captureMetrics.focusQuality;
-    float focusMeasure = [[_onyxResult getMetrics] getDistanceToCenter]; //_onyxResult.captureMetrics.distanceToCenter;
-    float livenessConfidence = [[_onyxResult getMetrics] getLivenessConfidence]; // _onyxResult.captureMetrics.livenessConfidence;
-    
-    NSString *resultText = [NSString stringWithFormat:@"returnFingerprintTemplate: %s\nreturnISOFingerprintTemplate: %s\nreturnWSQ: %s\nreturnGrayRawWSQ: %s\nnfiqScore: %d\nmplScore: %f\nfocusQuality: %f\nfocusMesaure: %f", [_onyxResult getFingerprintTemplate] ? "true":"false", [_onyxResult getISOFingerprintTemplate] ? "true":"false", [_onyxResult getWsqData] ? "true":"false", [_onyxResult getGrayRawWsqData] ? "true":"false",nfiqScore, mlpScore, focusQuality, focusMeasure];
-    if (livenessConfidence != -1) {
-        resultText = [resultText stringByAppendingString:[NSString stringWithFormat:@"\nlivenessConfidence: %f", livenessConfidence]];
+	if (_onyxResult) {
+        
+        // Processed Images (1 or 4 or none)
+        NSMutableArray *processedImages = [_onyxResult getProcessedFingerprintImages];
+        if (processedImages && [processedImages count] > 0) {
+        	for (UIImage *image in processedImages) {
+        	    // Your code here... example: myImageViews[0].image = image;
+        	    
+        	    // Metrics
+    			NSString *nfiqText = nil;
+				NSMutableArray* nfiqMetrics = [[_onyxResult getMetrics] getNfiqMetrics];
+				if (nfiqMetrics) {
+		
+					if (index < [nfiqMetrics count]) {
+						int nfiqScoreFingerprint = [nfiqMetrics[index] getNfiqScore];
+						nfiqText = [NSString stringWithFormat:@"Finger %d\nNFIQ Score: %d", (int)index+1, nfiqScoreFingerprint];
+						label.text = nfiqText;
+					}
+				}
+
+        	}
+            self.processedCarousel.hidden = NO;
+        } else {
+            self.processedCarousel.hidden = YES;
+        }
+        
+        // Raw Images (1 or 4 or none)
+        NSMutableArray *rawImages = [_onyxResult getRawFingerprintImages];
+        if (rawImages && [rawImages count] > 0) {
+            self.rawStackView.hidden = NO;
+            // Your code here... example: myImageViews[0].image = image;
+        } else {
+            self.rawStackView.hidden = YES;
+        }
+        
+        // Templates - example: get "Match score" for first finger in array of Templates
+		NSMutableArray* fingerprintTemplates = [_onyxResult getFingerprintTemplates];
+		if (fingerprintTemplates && [fingerprintTemplates count] != 0 && [[_onyxResult getProcessedFingerprintImages] count] != 0) {
+			double matchScore = [OnyxMatch pyramidMatch:fingerprintTemplates[0]
+											  withImage:[[_onyxResult getProcessedFingerprintImages] objectAtIndex:0]
+												 scales:[NSArray arrayWithObjects:@"0.6", @"0.8", @"1.0", @"1.2", @"1.4",nil]];
+			NSLog(@"Match score: %f", matchScore);
+		}
+        
+        // Liveness Confidence
+        if ([_onyxResult getMetrics]) {
+            float livenessConfidence = [[_onyxResult getMetrics] getLivenessConfidence];
+            if (livenessConfidence != -1) {
+                self.livenessTextView.text = [NSString stringWithFormat:@"Liveness Confidence: %f", livenessConfidence];
+                self.livenessStackView.hidden = NO;
+            } else {
+                self.livenessTextView.text = @"";
+                self.livenessStackView.hidden = YES;
+            }
+        }
+
+        
     }
-    _detailTextView.text = resultText;
     
 }
 
 - (IBAction)save:(id)sender {
-    for (OnyxResult* _onyxResult in _onyxResults) {
-    UIImageWriteToSavedPhotosAlbum([_onyxResult getRawFingerprintImage], nil, nil, nil);
-    UIImageWriteToSavedPhotosAlbum([_onyxResult getGrayRawFingerprintImage], nil, nil, nil);
-    UIImageWriteToSavedPhotosAlbum([_onyxResult getProcessedFingerprintImage], nil, nil, nil);
-    UIImageWriteToSavedPhotosAlbum([_onyxResult getEnhancedFingerprintImage], nil, nil, nil);
-    UIImageWriteToSavedPhotosAlbum([_onyxResult getBlackWhiteProcessedFingerprintImage], nil, nil, nil);
+    if (_onyxResult) {
+        
+        if ([_onyxResult getProcessedFingerprintImages] && [[_onyxResult getProcessedFingerprintImages] count] > 0) {
+            NSMutableArray *images = [_onyxResult getProcessedFingerprintImages];
+            for (UIImage *image in images) {
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+            }
+        }
+        
+        if ([_onyxResult getRawFingerprintImages] && [[_onyxResult getRawFingerprintImages] count] > 0) {
+            NSMutableArray *images = [_onyxResult getRawFingerprintImages];
+            for (UIImage *image in images) {
+                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+            }
+        }
+        
+        // Save WSQ & Template as File
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSAllDomainsMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
+
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd-MM-yyyy-HH-mm-ss"];
+        NSDate *currentDate = [NSDate date];
+        NSString *dateString = [formatter stringFromDate:currentDate];
+
+        // Save WSQ
+        if ([_onyxResult getWsqData]) {
+            NSMutableArray* wsqData = [_onyxResult getWsqData];
+
+            if (wsqData && [wsqData count] > 0) {
+                for (int i=0; i<wsqData.count; i++) {
+                    NSData *wsq = [wsqData objectAtIndex:i];
+                    NSString *filename = [NSString stringWithFormat:@"%@-wsq-%d.wsq",dateString,i+1];
+                    NSString *filePath = [docsDir stringByAppendingPathComponent:filename];
+                    [wsq writeToFile:filePath atomically:YES];
+                }
+            }
+        }
+
+        // Save Template
+        if ([_onyxResult getWsqData]) {
+            NSMutableArray* templateData = [_onyxResult getFingerprintTemplates];
+            if (templateData && [templateData count] > 0) {
+                for (int i=0; i<templateData.count; i++) {
+                    NSData *data = [templateData objectAtIndex:i];
+                    NSString *filename = [NSString stringWithFormat:@"%@-template-%d.txt",dateString,i+1];
+                    NSString *filePath = [docsDir stringByAppendingPathComponent:filename];
+                    [[data base64EncodedDataWithOptions:NSUTF8StringEncoding] writeToFile:filePath atomically:YES];
+                }
+            }
+        }
+        
     }
-    NSString *docsDir;
-    NSArray *dirPaths;
-    
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    docsDir = [dirPaths objectAtIndex:0];
-    NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"rawGrayWSQ.wsq"]];
-    [_rawGrayWSQData writeToFile:databasePath atomically:YES];
-    NSString *moreDatabasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"WSQ.wsq"]];
-    [_WSQData writeToFile:moreDatabasePath atomically:YES];
+
 }
 
 @end
@@ -340,13 +457,8 @@ OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] 
 }
 ```
 
-* Uncomment the segue code in the `onyxSuccessCallback`
 
-```
-[self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResults];
-```
-
-* Add `Labels` and `UIImageViews` for all the images to be displayed, a `Text View` to display metrics, and a save button.
+* Add `Labels` for metrics and `UIImageViews` for all the images to be displayed, a `Text View` to display liveness confidence, and a save button.
 * Wire up the storyboard elements to `OnyxResultViewController.h` using the `Assistant Editor`.
     * Control-click on the storyboard element and connect it to the corresponding element in `OnyxResultViewController.h`.
 
