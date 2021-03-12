@@ -170,6 +170,8 @@ to
 * Implement the required Onyx callbacks
 
 ```
+#pragma mark - Onyx Callbacks
+
 -(void(^)(Onyx* configuredOnyx))onyxCallback {
     return ^(Onyx* configuredOnyx) {
         NSLog(@"Onyx Callback");
@@ -180,14 +182,13 @@ to
     };
 }
 
--(void(^)(NSMutableArray* onyxResults))onyxSuccessCallback {
-    return ^(NSMutableArray* onyxResults) {
+-(void(^)(OnyxResult* onyxResult))onyxSuccessCallback {
+    return ^(OnyxResult* onyxResult) {
         NSLog(@"Onyx Success Callback");
-        self->_onyxResults = onyxResults;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // Uncomment this later when ready to handle OnyxResult
-            [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResults];
-        });
+        self->_onyxResult = onyxResult;
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
+            [self performSegueWithIdentifier:@"segueToOnyxResult" sender:onyxResult];
+        }];
     };
 }
 
