@@ -210,7 +210,7 @@
                 for (int i=0; i<wsqData.count; i++) {
                     NSData *data = [wsqData objectAtIndex:i];
                     NSString *filename = [NSString stringWithFormat:@"%@-wsq-%d.wsq",dateString,i+1];
-                    [picker addAttachmentData:[data base64EncodedDataWithOptions:NSUTF8StringEncoding]
+                    [picker addAttachmentData:data
                                      mimeType:@"text/txt"
                                      fileName:filename];
                 
