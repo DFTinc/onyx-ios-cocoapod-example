@@ -33,7 +33,10 @@ referenced below in the implementation sections, so if you have previously implm
 ### Archiving app with iOS Deployment Target 9.x OR 10.x will fail. 
 Reason: OnyxCamera fails to archive app with "armv7" architecture included.
 
-Solution: 
+Solution A:
+Set Minimum Deployment Target to >= 11.0
+
+Solution B: 
 STEP 1: xCode -> App Target -> Build Settings -> set "YES" to "Build Active Architectures Only [Release]"
 STEP 2: plug in your iOS device -> select "Your iOS device" as build target (instead of "Any iOS Device (arm64, armv7))
 STEP 3: Archive app
