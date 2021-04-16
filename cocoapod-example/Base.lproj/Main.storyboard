@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aUA-Us-97c">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -13,7 +15,7 @@
             <objects>
                 <navigationController id="aUA-Us-97c" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DDb-Nu-xAa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -24,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-713" y="66"/>
         </scene>
-        <!--Onyx 6-->
+        <!--Onyx 7-->
         <scene sceneID="Mt1-g3-Feu">
             <objects>
                 <viewController id="SHd-sS-cgp" customClass="ViewController" sceneMemberID="viewController">
@@ -33,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxa-Rv-2Iu">
-                                <rect key="frame" x="16" y="1609" width="343" height="50"/>
+                                <rect key="frame" x="16" y="1575" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.59607843140000005" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="M0d-kt-i2r"/>
@@ -46,7 +48,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ivr-wx-ioT">
-                                <rect key="frame" x="0.0" y="44" width="375" height="1557"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="1479"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Adx-61-7xk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="262.5"/>
@@ -574,7 +576,7 @@
                             <constraint firstItem="kxa-Rv-2Iu" firstAttribute="leading" secondItem="zfc-5q-xEx" secondAttribute="leadingMargin" id="xDJ-WO-RLk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Onyx 6" id="VBE-Ug-8K7"/>
+                    <navigationItem key="navigationItem" title="Onyx 7" id="VBE-Ug-8K7"/>
                     <size key="freeformSize" width="375" height="1667"/>
                     <connections>
                         <outlet property="LEDBrightness" destination="i3o-Uh-Bim" id="VlE-bU-ihL"/>
@@ -616,20 +618,20 @@
             <objects>
                 <viewController title="OnyxResultViewController" id="xoJ-6V-n4P" customClass="OnyxResultViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i52-25-nqA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEs-3R-NoK">
-                                <rect key="frame" x="0.0" y="44" width="600" height="432"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="650"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W5T-9k-wVo">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="904"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="904"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jrk-Gu-Y1G" userLabel="infoStackView">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wst-Gh-E54">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -647,10 +649,10 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jCG-CZ-ybg" userLabel="processedStackView">
-                                                <rect key="frame" x="0.0" y="84" width="600" height="400"/>
+                                                <rect key="frame" x="0.0" y="84" width="414" height="400"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vY-q6-TvS" customClass="iCarousel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
                                                 </subviews>
@@ -663,10 +665,10 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ed0-ff-x4D" userLabel="rawStackView">
-                                                <rect key="frame" x="0.0" y="504" width="600" height="400"/>
+                                                <rect key="frame" x="0.0" y="504" width="414" height="400"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7S-dk-NyY" customClass="iCarousel">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
                                                 </subviews>
@@ -702,7 +704,7 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLT-fB-hHN" userLabel="emailBtn">
-                                <rect key="frame" x="16" y="542" width="568" height="50"/>
+                                <rect key="frame" x="16" y="804" width="382" height="50"/>
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.66274509803921566" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="g0v-ue-Scl"/>
@@ -716,7 +718,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dO-l4-ERS">
-                                <rect key="frame" x="16" y="484" width="568" height="50"/>
+                                <rect key="frame" x="16" y="746" width="382" height="50"/>
                                 <color key="backgroundColor" red="0.25490196078431371" green="0.66274509803921566" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fm5-4e-Ked"/>
