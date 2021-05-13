@@ -58,7 +58,7 @@ float keyboardHeight;
     
     OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] init];
     onyxConfigBuilder.setViewController(self)
-    .setLicenseKey(@"your-license-key-here")
+    .setLicenseKey(@"your license key here")
     .setReturnRawImage(_returnRawImage.on)
     .setReturnProcessedImage(_returnProcessedImage.on)
     .setReturnWSQ(_returnWsq.on)
