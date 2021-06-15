@@ -12,6 +12,8 @@ cd onyx-ios-cocoapod-example
 ```
 pod install
 ```
+* Open the new workspace that was created `onyx-cocoapod-example.xcworkspace`
+
 ***NOTE***
 
 OnyxCamera cocoapod 7.0.1 now implements the latest ONYX four finger simultaneous capture process you will see a breaking change from the previous single finger capture cocoapods. ONYX no longer returns a single OnyxResult file it returns an array of files representing each individual fingerprint and is now denoted as
