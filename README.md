@@ -112,7 +112,7 @@ end
 
 1. Select your xcodeproj file from the naviagtion pane on the left
 2. Select "Build Phases"
-3. Expaned "Copy Bunde Resources"
+3. Expand "Copy Bunde Resources"
 4. Click the "+"
 5. Click "Add Other..."
 6. A Finder window will launch
@@ -121,7 +121,8 @@ end
 ```
 onyx_4f_logo_v2.png
 onyx_4f_logo_v2@2x.png
-capture_unet_nn_quant.tflite
+capturenet.tflite
+qualitynet.tflite
 ```
 
 Otherwise the OnyxCamera will crash!
