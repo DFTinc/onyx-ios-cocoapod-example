@@ -43,22 +43,6 @@ STEP 1: xCode -> App Target -> Build Settings -> set "YES" to "Build Active Arch
 STEP 2: plug in your iOS device -> select "Your iOS device" as build target (instead of "Any iOS Device (arm64, armv7))
 STEP 3: Archive app
 
-### 3 files must be added manually into your project project:
-
-1. Select your xcodeproj file from the naviagtion pane on the left
-2. Select "Build Phases"
-3. Expaned "Copy Bunde Resources"
-4. Click the "+"
-5. Click "Add Other..."
-6. A Finder window will launch
-7. Navigate to Pods/OnyxCamera/OnyxCamera/Assets/ source the resource files from here
-
-```
-onyx_4f_logo_v2.png
-onyx_4f_logo_v2@2x.png
-capture_unet_nn_quant.tflite
-```
-
 ## How to integrate OnyxCamera CocoaPod
 
 * Open Xcode and create a new project
