@@ -407,7 +407,7 @@ OnyxConfigurationBuilder* onyxConfigBuilder = [[OnyxConfigurationBuilder alloc] 
         }
 
         // Save Template
-        if ([_onyxResult getWsqData]) {
+        if ([_onyxResult getFingerprintTemplates]) {
             NSMutableArray* templateData = [_onyxResult getFingerprintTemplates];
             if (templateData && [templateData count] > 0) {
                 for (int i=0; i<templateData.count; i++) {
