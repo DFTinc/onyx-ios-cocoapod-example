@@ -6,7 +6,7 @@ target 'cocoapod-example' do
   # use_frameworks!
 
   # Pods for cocoapod-example
-  pod 'OnyxCamera'
+  pod 'OnyxCamera', '7.1.9'
   
   # Pod for displaying the result image(s) in a carausel view
   pod 'iCarousel'
